@@ -1,1 +1,2 @@
-# COMP90049_KT
+# Knowledge technology
+COMP90045
