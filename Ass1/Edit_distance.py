@@ -22,9 +22,11 @@ wiki_predict_abs_path = os.path.join(script_dir, wiki_predict_rel_path)
 # read dict
 dictionary = ()
 with open(dict_abs_path, "r") as f:
-    dictionary = dictionary + (f.read().splitlines(),)
+    dictionary_list = f.read().splitlines()
+    for i in range(0, len(dictionary_list)):
+        dictionary = dictionary + (dictionary_list[i],)
 
-# birkbeck_misspell
+# birkbeck
 fw = open(birkbeck_predict_abs_path, "w")
 with open(birkbeck_misspell_abs_path, "r") as fr_misspell:
     with open(birkbeck_correct_abs_path, "r") as fr_correct:
@@ -32,21 +34,26 @@ with open(birkbeck_misspell_abs_path, "r") as fr_misspell:
         birkbeck_misspell = fr_misspell.read().splitlines()
         birkbeck_correct = fr_correct.read().splitlines()
         birkbeck_predict = ""
-        min_distance = -math.inf
-
-        for each in dictionary:
-            try:
-                temp = brew_distance.distance(birkbeck_misspell, each, output="distance", cost=(1, -1, -1, -1))
-                if temp > min_distance:
-                    min_distance = temp
-                    birkbeck_predict = each
-            except brew_distance.BrewDistanceException as error:
-                print(str(error))
-        fw.write(str(int(birkbeck_correct == birkbeck_predict)) + '\t\t\t' + birkbeck_misspell + '\t\t\t' + birkbeck_predict + '\t\t\t' + birkbeck_correct + '\t\t\t' + str(min_distance) + '\n')
+        dist = -math.inf
+        for i in range(0, len(birkbeck_misspell)):
+            for each in dictionary:
+                try:
+                    temp = brew_distance.distance(birkbeck_misspell[i], each, output="distance", cost=(1, -1, -1, -1))
+                    if temp > dist:
+                        dist = temp
+                        birkbeck_predict = each
+                except brew_distance.BrewDistanceException as error:
+                    print(str(error))
+            fw.write('{:<5}'.format(str(int(birkbeck_correct[i] == birkbeck_predict))))
+            fw.write('{:<20}'.format(birkbeck_misspell[i]))
+            fw.write('{:<20}'.format(birkbeck_predict))
+            fw.write('{:<20}'.format(birkbeck_correct[i]))
+            fw.write('{:<10}'.format(str(dist)))
+            fw.write('\n')
 fw.close()
 
 
-# read and predict birkbeck_misspell
+# wiki
 fw = open(wiki_predict_abs_path, "w")
 with open(wiki_misspell_abs_path, "r") as fr_misspell:
     with open(wiki_correct_abs_path, "r") as fr_correct:
@@ -54,15 +61,20 @@ with open(wiki_misspell_abs_path, "r") as fr_misspell:
         wiki_misspell = fr_misspell.read().splitlines()
         wiki_correct = fr_correct.read().splitlines()
         wiki_predict = ""
-        min_distance = -math.inf
-
-        for each in dictionary:
-            try:
-                temp = brew_distance.distance(wiki_misspell, each, output="distance", cost=(1, -1, -1, -1))
-                if temp > min_distance:
-                    min_distance = temp
-                    wiki_predict = each
-            except brew_distance.BrewDistanceException as error:
-                print(str(error))
-        fw.write(str(int(wiki_correct == wiki_predict)) + '\t\t\t' + wiki_misspell + '\t\t\t' + wiki_predict + '\t\t\t' + wiki_correct + '\t\t\t' + str(min_distance) + '\n')
+        dist = -math.inf
+        for i in range(0, len(wiki_misspell)):
+            for each in dictionary:
+                try:
+                    temp = brew_distance.distance(wiki_misspell[i], each, output="distance", cost=(1, -1, -1, -1))
+                    if temp > dist:
+                        dist = temp
+                        wiki_predict = each
+                except brew_distance.BrewDistanceException as error:
+                    print(str(error))
+            fw.write('{:<5}'.format(str(int(wiki_correct[i] == wiki_predict))))
+            fw.write('{:<20}'.format(wiki_misspell[i]))
+            fw.write('{:<20}'.format(wiki_predict))
+            fw.write('{:<20}'.format(wiki_correct[i]))
+            fw.write('{:<10}'.format(str(dist)))
+            fw.write('\n')
 fw.close()
