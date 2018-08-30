@@ -34,17 +34,10 @@ wiki_predict5_rel_path = "data/wiki_predict_Ngram_5.txt"
 wiki_predict5_abs_path = os.path.join(script_dir, wiki_predict5_rel_path)
 
 # read dict
-dictionary = ()
 with open(dict_abs_path, "r") as f:
     dictionary_list = f.read().splitlines()
-    for i in range(0, len(dictionary_list)):
-        dictionary = dictionary + (dictionary_list[i],)
 
 # birkbeck
-fw2 = open(birkbeck_predict2_abs_path, "w")
-fw3 = open(birkbeck_predict3_abs_path, "w")
-fw4 = open(birkbeck_predict4_abs_path, "w")
-fw5 = open(birkbeck_predict5_abs_path, "w")
 with open(birkbeck_misspell_abs_path, "r") as fr_misspell:
     with open(birkbeck_correct_abs_path, "r") as fr_correct:
 
@@ -59,12 +52,15 @@ with open(birkbeck_misspell_abs_path, "r") as fr_misspell:
         dist4 = -math.inf
         dist5 = -math.inf
         for i in range(0, len(birkbeck_misspell)):
-            for each in dictionary:
-                print(each)
-                temp2 = ngram.NGram(birkbeck_misspell[i], each, N=2)
-                temp3 = ngram.NGram(birkbeck_misspell[i], each, N=3)
-                temp4 = ngram.NGram(birkbeck_misspell[i], each, N=4)
-                temp5 = ngram.NGram(birkbeck_misspell[i], each, N=5)
+            fw2 = open(birkbeck_predict2_abs_path, "a")
+            fw3 = open(birkbeck_predict3_abs_path, "a")
+            fw4 = open(birkbeck_predict4_abs_path, "a")
+            fw5 = open(birkbeck_predict5_abs_path, "a")
+            for each in dictionary_list:
+                temp2 = ngram.NGram.compare(birkbeck_misspell[i], each, N=2)
+                temp3 = ngram.NGram.compare(birkbeck_misspell[i], each, N=3)
+                temp4 = ngram.NGram.compare(birkbeck_misspell[i], each, N=4)
+                temp5 = ngram.NGram.compare(birkbeck_misspell[i], each, N=5)
                 if temp2 > dist2:
                     dist2 = temp2
                     birkbeck_predict2 = each
@@ -77,6 +73,7 @@ with open(birkbeck_misspell_abs_path, "r") as fr_misspell:
                 if temp5 > dist5:
                     dist5 = temp5
                     birkbeck_predict5 = each
+            print(birkbeck_misspell[i])
             fw2.write('{:<5}'.format(str(int(birkbeck_correct[i] == birkbeck_predict2))))
             fw2.write('{:<20}'.format(birkbeck_misspell[i]))
             fw2.write('{:<20}'.format(birkbeck_predict2))
@@ -101,17 +98,13 @@ with open(birkbeck_misspell_abs_path, "r") as fr_misspell:
             fw5.write('{:<20}'.format(birkbeck_correct[i]))
             fw5.write('{:<10}'.format(str(dist5)))
             fw5.write('\n')
-fw2.close()
-fw3.close()
-fw4.close()
-fw5.close()
+            fw2.close()
+            fw3.close()
+            fw4.close()
+            fw5.close()
 
 
 # wiki
-fw2 = open(wiki_predict2_abs_path, "w")
-fw3 = open(wiki_predict3_abs_path, "w")
-fw4 = open(wiki_predict4_abs_path, "w")
-fw5 = open(wiki_predict5_abs_path, "w")
 with open(wiki_misspell_abs_path, "r") as fr_misspell:
     with open(wiki_correct_abs_path, "r") as fr_correct:
 
@@ -126,12 +119,15 @@ with open(wiki_misspell_abs_path, "r") as fr_misspell:
         dist4 = -math.inf
         dist5 = -math.inf
         for i in range(0, len(wiki_misspell)):
-            for each in dictionary:
-                print(each)
-                temp2 = ngram.NGram(wiki_misspell[i], each, N=2)
-                temp3 = ngram.NGram(wiki_misspell[i], each, N=3)
-                temp4 = ngram.NGram(wiki_misspell[i], each, N=4)
-                temp5 = ngram.NGram(wiki_misspell[i], each, N=5)
+            fw2 = open(wiki_predict2_abs_path, "a")
+            fw3 = open(wiki_predict3_abs_path, "a")
+            fw4 = open(wiki_predict4_abs_path, "a")
+            fw5 = open(wiki_predict5_abs_path, "a")
+            for each in dictionary_list:
+                temp2 = ngram.NGram.compare(wiki_misspell[i], each, N=2)
+                temp3 = ngram.NGram.compare(wiki_misspell[i], each, N=3)
+                temp4 = ngram.NGram.compare(wiki_misspell[i], each, N=4)
+                temp5 = ngram.NGram.compare(wiki_misspell[i], each, N=5)
                 if temp2 > dist2:
                     dist2 = temp2
                     wiki_predict2 = each
@@ -144,6 +140,7 @@ with open(wiki_misspell_abs_path, "r") as fr_misspell:
                 if temp5 > dist5:
                     dist5 = temp5
                     wiki_predict5 = each
+            print(wiki_misspell[i])
             fw2.write('{:<5}'.format(str(int(wiki_correct[i] == wiki_predict2))))
             fw2.write('{:<20}'.format(wiki_misspell[i]))
             fw2.write('{:<20}'.format(wiki_predict2))
@@ -168,7 +165,7 @@ with open(wiki_misspell_abs_path, "r") as fr_misspell:
             fw5.write('{:<20}'.format(wiki_correct[i]))
             fw5.write('{:<10}'.format(str(dist5)))
             fw5.write('\n')
-fw2.close()
-fw3.close()
-fw4.close()
-fw5.close()
+            fw2.close()
+            fw3.close()
+            fw4.close()
+            fw5.close()
