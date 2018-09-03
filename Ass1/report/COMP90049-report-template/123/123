@@ -1,0 +1,108 @@
+\documentclass[11pt]{article}
+\usepackage{colacl}
+\sloppy
+
+
+
+\title{Waht kinda typoz do poeple mak?\\
+	\large COMP90049 Project 1 Report}
+\author{Zichun Zhu 784145\\
+	zichunz@student.unimelb.edu.au}
+
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+What kind of typos do people make is a wide question. Some existing solution, like spelling checker and auto spelling corrector help people make less misspell. On another hand, the spelling corrector can need to know how people make misspells, to increase the correctness of their recognization and prediction on the words. This report implement a misspelling predictor based on the basic global edit distance algorithm to correct misspelling.
+
+\section{Data and Methodology}
+There two set of data for this project: the wiki misspell and the birkbeck misspell. The wiki misspell is from 
+
+
+\subsection{Subsection}
+
+
+ 
+\subsubsection{Subsubsection}
+
+Text of the subsubsection.
+Text of the subsubsection.
+Text of the subsubsection.
+Text of the subsubsection.
+Text of the subsubsection.
+Text of the subsubsection.
+Text of the subsubsection.
+Text of the subsubsection (see Table~\ref{table1}).
+
+\begin{table}[h]
+ \begin{center}
+\begin{tabular}{|l|l|}
+
+      \hline
+      Corpus & Features\\
+      \hline\hline
+      AAA & 1M words\\
+      BBB & spoken corpus (expensive)\\
+      CCC & 2M words\\
+        & free (to academics)\\
+      \hline
+
+\end{tabular}
+\caption{The caption of the table}\label{table1}
+ \end{center}
+\end{table}
+
+
+Text of the subsubsection.
+Text of the subsubsection.
+Text of the subsubsection.
+Text of the subsubsection.
+Text of the subsubsection.
+
+
+\section{Section}
+
+Filling text; filling text.
+
+Filling text; filling text.
+Filling text; filling text.
+Filling text; filling text.
+Filling text; filling text.
+Filling text; filling text.
+
+Filling text; filling text.
+Filling text; filling text.
+Filling text; filling text.
+Filling text; filling text.
+Filling text; filling text.
+Filling text; filling text.
+
+\section{Section}
+
+Text. Text. Text. Text. Text.
+Text. Text. Text. Text. Text.
+
+Text. Text. Text. Text. Text.
+Text. Text. Text. Text. Text.
+Text. Text. Text. Text. Text.
+
+Text. Text. Text. Text. Text.
+Text. Text. Text. Text. Text.
+Text. Text. Text. Text. Text.
+Text. Text. Text. Text. Text.
+Text. Text. More text. Text. Text.
+Text. Text. Text. Text. Text.
+
+Text. Text. Text. Text. Text.
+Text. Text. Text. Text. Text.
+
+\section{Conclusions}
+
+Concluding text.
+
+\bibliographystyle{acl}
+\bibliography{sample}
+
+\end{document}
+

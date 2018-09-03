@@ -1,4 +1,4 @@
-# Distance = (G1 or G2) - (G1 and G2)
+# Distance = (G1 or G2) \ (G1 and G2)
 
 import math
 import os

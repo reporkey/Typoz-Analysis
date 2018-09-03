@@ -1,0 +1,23 @@
+\begin{thebibliography}{}
+
+\bibitem[\protect\citename{dwyl}nd]{EnglishWords}
+dwyl.
+\newblock n.d.
+\newblock English words.
+\newblock https://github.com/dwyl/english-words.
+
+\bibitem[\protect\citename{Roger~Mitton}nd]{BirkbeckMisspell}
+Oxford Text~Archive Roger~Mitton.
+\newblock n.d.
+\newblock birkbecks.
+\newblock https://www.dcs.bbk.ac.uk/~ROGER/corpora.html.
+
+\bibitem[\protect\citename{{Wikipedia contributors}}nd]{WikiMisspell}
+{Wikipedia contributors}.
+\newblock n.d.
+\newblock {Wikipedia:Lists} of common misspellings.
+\newblock In {\em Wikipedia, The Free Encyclopedia}.
+\newblock
+  https://en.wikipedia.org/w/index.php?title=\\Wikipedia:Lists\_of\_common\_misspellings\&\\oldid=813410985.
+
+\end{thebibliography}
