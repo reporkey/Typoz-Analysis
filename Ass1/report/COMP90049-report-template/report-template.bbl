@@ -6,10 +6,10 @@ dwyl.
 \newblock English words.
 \newblock https://github.com/dwyl/english-words.
 
-\bibitem[\protect\citename{Roger~Mitton}nd]{BirkbeckMisspell}
+\bibitem[\protect\citename{Roger~Mitton}1980]{BirkbeckMisspell}
 Oxford Text~Archive Roger~Mitton.
-\newblock n.d.
-\newblock birkbecks.
+\newblock 1980.
+\newblock Birkbeck spelling error corpus.
 \newblock https://www.dcs.bbk.ac.uk/~ROGER/corpora.html.
 
 \bibitem[\protect\citename{{Wikipedia contributors}}nd]{WikiMisspell}
