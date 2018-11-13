@@ -11,7 +11,7 @@ onlyOnePrediction = 0
 totalPredictionAfterNgram = 0
 correctPredictionAfterNgram = 0
 onlyOnePredictionAfterNgram = 0
-wordsWith1GED = 0
+wordsWith1GED = 00
 wordsWith3LessGED = 0
 
 with open(wiki_abs_path, "r") as f:
