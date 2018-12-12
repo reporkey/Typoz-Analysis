@@ -1,5 +1,6 @@
-## COMP90049 Knowledge Technologies
+## COMP90049 Knowledge Technologies Project
 ### Project 1: Waht kinda typoz do poeple mak?
+#### Discover some patterns from typoz using cluster techniques.
 
 ### Code Files
 * 	Edit_distance.py
